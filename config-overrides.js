@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = function override(config, env) {
     // Set the public path based on the environment
-    const publicPath = env === 'development' ? 'http://localhost:3008/' : 'https://mf2.vercel.app/';
+    const publicPath = env === 'development' ? 'http://localhost:3009/' : 'something';
 
     // Ensure the public path is set in the output configuration
     config.output = {
@@ -15,10 +15,10 @@ module.exports = function override(config, env) {
 
   config.plugins = [
     new ModuleFederationPlugin({
-      name: 'payment',
+      name: 'cart',
       filename: 'remoteEntry.js',
       exposes: {
-        './Payment': './src/components/Payment.tsx', // Adjust the path to your component
+        './Cart': './src/components/CartIcon.tsx', 
       },
       shared: {
         // Shared dependencies

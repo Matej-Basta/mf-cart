@@ -1,9 +1,9 @@
 import './App.css';
-import Payment from './components/Payment.tsx';
+import CartIcon from './components/CartIcon.tsx';
 
 function App() {
   return ( 
-    <Payment />
+    <CartIcon />
   );
 }
 

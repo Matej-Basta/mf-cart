@@ -1,0 +1,11 @@
+.cart {
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.cart-icon {
+    cursor: pointer;
+    margin-right: 0.5rem;
+}

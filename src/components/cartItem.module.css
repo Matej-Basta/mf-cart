@@ -1,0 +1,35 @@
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.quantity {
+    align-items: center;
+    display: flex;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.quantity-number {
+    margin: 0 0.2rem;
+}
+
+.product {
+    align-items: center;
+    display: flex;   
+}
+
+.image {
+    height: 25px;
+    width: 25px;
+}
+
+.name {
+    margin-left: 1rem;
+    text-align: center;
+    width: 130px;
+}
