@@ -1,15 +1,20 @@
 import React from "react";
 // @ts-ignore
 import styles from "./cart.module.css";
-import CartItem from "./CartItem";
+import CartItem from "./CartItem.tsx";
+import CartItemType from "../types/CartItemType";
 
-export default function Cart() {
+export default function Cart( {cart, setCart, bc}) {
 
     const clearCart = () => {
-        console.log("Clearing cart");
+        setCart([]);
+        bc.postMessage({action: "clear"});
     }
 
-    if (true) {
+    const priceOfItems = cart.reduce((acc, item) => acc + (item.quantity*item.price), 0);
+    const roundedPrice = Number(priceOfItems.toFixed(2));
+
+    if (cart.length === 0) {
         return (
             <div className={styles.cart}>
                 There are no items in the cart.
@@ -17,10 +22,10 @@ export default function Cart() {
         )
     }
 
-/*     return (
+    return (
     <div className={styles.cart}>
         {cart.map((item: CartItemType) => (
-            <CartItem key={item.id} item={item}/>
+            <CartItem key={item.id} item={item} cart={cart} setCart={setCart} bc={bc}/>
         ))}
         <hr className={styles.line}/>
         <div className={styles.summary}>
@@ -28,5 +33,5 @@ export default function Cart() {
             <p className={styles.total}>{roundedPrice} DKK</p>
         </div>
     </div>
-    ) */
+    )
 }

@@ -3,11 +3,32 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 // @ts-ignore
 import styles from './cartItem.module.css';
 
-export default function CartItem({item}) {
+export default function CartItem({item, cart, setCart, bc}) {
     const addItem = () => {
+        const oldItem = cart.find((cartItem) => cartItem.id === item.id);
+        if (oldItem) {
+            oldItem.quantity += 1;
+        }
+        setCart([...cart]);
+        const { quantity, ...itemToSend } = item;
+        bc.postMessage({action: "add", product: itemToSend});
     }
 
     const removeItem = () => {
+        const oldItem = cart.find((cartItem) => cartItem.id === item.id);
+        if (oldItem) {
+            oldItem.quantity -= 1;
+            if (oldItem.quantity === 0) {
+                const newCart = cart.filter((cartItem) => cartItem.id !== item.id);
+                setCart([...newCart]);
+                const { quantity, ...itemToSend } = item;
+                bc.postMessage({action: "remove", product: itemToSend});
+                return;
+            }
+        }
+        setCart([...cart]);
+        const { quantity, ...itemToSend } = item;
+        bc.postMessage({action: "remove", product: itemToSend});
     }
 
     return (
