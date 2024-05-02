@@ -21,7 +21,6 @@ export default function Cart( {cart, setCart, bc}) {
             </div>
         )
     }
-    //sth
 
     return (
     <div className={styles.cart}>
