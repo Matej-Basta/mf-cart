@@ -31,7 +31,6 @@
 .button {
     align-self: end;
     background-color: #630286;
-    background-color: #000000 !important;
     border: none;
     color: white;
     cursor: pointer;
