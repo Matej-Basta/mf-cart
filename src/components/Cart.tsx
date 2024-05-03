@@ -30,7 +30,7 @@ export default function Cart( {cart, setCart, bc}) {
         <hr className={styles.line}/>
         <div className={styles.summary}>
             <button onClick={clearCart} className={styles.button}>Clear cart</button>
-            <p className={styles.total} data-testid="total">{roundedPrice} DKK</p>
+            <p className={styles.total} data-testid="total" id="cart_total">{roundedPrice} DKK</p>
         </div>
     </div>
     )
