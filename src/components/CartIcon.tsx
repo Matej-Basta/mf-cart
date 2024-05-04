@@ -10,6 +10,7 @@ const bc = new BroadcastChannel('cart');
 export default function CartIcon() {
     const [isCartVisible, setIsCartVisible] = useState(false);
     const [cart, setCart] = useState<CartItemType[]>([]);
+    // test
 
 
     bc.onmessage = (event) => {
