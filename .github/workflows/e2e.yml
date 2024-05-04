@@ -1,0 +1,15 @@
+name: Trigger Shell Workflow
+
+on: [pull_request]
+
+jobs:
+  trigger_shell_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Shell Workflow
+        uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: Matej-Basta
+          repo: shell
+          github_token: ${{ secrets.G_ACCESS_TOKEN }}
+          workflow_file_name: e2e.yml
